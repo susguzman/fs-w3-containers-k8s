@@ -1,0 +1,28 @@
+services:
+  frontend:
+    image: myfrontend:0.1.0-alpine
+    ports:
+      - 8888:80
+  backend:
+    image: mybackend:0.1.0
+    ports:
+      - 3800:3800
+    environment:
+      - ORACLE_USER=appuser
+      - ORACLE_PASS=myapppass
+      - ORACLE_CONNSTR=mibasededatos:1521/xepdb1
+    restart: always
+  mibasededatos:
+    image: gvenzl/oracle-xe:21.3.0
+    ports:
+      - 1521:1521
+    environment:
+      - ORACLE_PASSWORD=mypass
+      - APP_USER=appuser
+      - APP_USER_PASSWORD=myapppass
+    volumes:
+      - oradata:/opt/oracle/oradata               # Persistencia
+      - ./database:/container-entrypoint-initdb.d # Script inicial
+volumes:
+  # Persistencia de la base de datos
+  oradata:

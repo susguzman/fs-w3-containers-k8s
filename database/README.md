@@ -8,7 +8,7 @@ docker run -d -p 1521:1521 `
 -e ORACLE_PASSWORD=mypass `
 -e APP_USER=appuser `
 -e APP_USER_PASSWORD=myapppass `
--v C:\Users\jesgu\code\fs-w3-containers-k8s\database:/container-entrypoint-initdb.d `
+-v $pwd\:/container-entrypoint-initdb.d `
 -v oracle-disk:/opt/oracle/oradata `
 gvenzl/oracle-xe:21.3.0
 ```
