@@ -15,6 +15,10 @@ npm start
 ```
 ## Get Started Docker
 ``` powershell
+# Build Image
+docker build -t mybackend:0.1.0 .
+
+# Run Container
 docker run -d -p 3800:3800 `
 -e ORACLE_USER=appuser `
 -e ORACLE_PASS=myapppass `

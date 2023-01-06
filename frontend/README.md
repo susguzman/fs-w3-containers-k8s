@@ -14,5 +14,9 @@ npm start
 ## Get Started Docker
 
 ``` powershell
+# Build Image
+docker build -t myfrontend:0.1.0-alpine .
+
+# Run Container
 docker run -d -p 8888:80 myfrontend:0.1.0-alpine
 ```
